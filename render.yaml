@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: campusflow-student-registry
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeploy: false
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_DATABASE
+        value: student_registry
+      - key: MONGODB_URI
+        sync: false

@@ -1,0 +1,7 @@
+# HCP Terraform remote state example. Store the completed file as the Jenkins
+# Secret File credential "terraform-backend-config".
+hostname     = "app.terraform.io"
+organization = "replace-with-your-hcp-organization"
+workspaces = {
+  name = "student-registry-render"
+}

@@ -1,0 +1,15 @@
+.git
+.github
+.idea
+.vscode
+.tools
+.m2
+node_modules
+coverage
+reports
+terraform
+docs
+*.log
+.env*
+!.env.example
+npm-debug.log*

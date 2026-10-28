@@ -1,0 +1,9 @@
+service_name     = "campusflow-student-registry"
+repository_url   = "https://github.com/shakthish-17/dev-ops"
+branch           = "main"
+region           = "singapore"
+plan             = "starter"
+mongodb_database = "student_registry"
+
+# Never commit the real value. Prefer TF_VAR_mongodb_uri from Jenkins Credentials.
+# mongodb_uri = "mongodb+srv://username:password@cluster.example.mongodb.net/student_registry"

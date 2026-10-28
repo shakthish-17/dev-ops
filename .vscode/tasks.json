@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "App: run",
+      "type": "process",
+      "command": "npm.cmd",
+      "args": ["start"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "App: test",
+      "type": "process",
+      "command": "npm.cmd",
+      "args": ["test"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "App: lint",
+      "type": "process",
+      "command": "npm.cmd",
+      "args": ["run", "lint"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Terraform: validate",
+      "type": "process",
+      "command": "${workspaceFolder}\\.tools\\terraform\\1.17.0\\terraform.exe",
+      "args": ["-chdir=terraform", "validate", "-no-color"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

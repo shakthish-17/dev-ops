@@ -1,0 +1,36 @@
+# Dependencies and generated artifacts
+node_modules/
+.npm-cache/
+coverage/
+reports/
+artifacts/
+*.tgz
+*.log
+npm-debug.log*
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Terraform state and local configuration
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan.txt
+terraform.tfvars
+backend.hcl
+crash.log
+
+# Workspace-local tools and legacy caches
+.tools/
+.m2/
+
+# IDE and operating system files
+.idea/
+*.iml
+.DS_Store
+Thumbs.db

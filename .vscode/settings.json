@@ -1,0 +1,9 @@
+{
+  "git.path": "${workspaceFolder}\\.tools\\git\\cmd\\git.exe",
+  "terraform.languageServer.path": "${workspaceFolder}\\.tools\\terraform\\1.17.0\\terraform.exe",
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript"],
+  "terminal.integrated.env.windows": {
+    "PATH": "${workspaceFolder}\\.tools\\terraform\\1.17.0;${workspaceFolder}\\.tools\\git\\cmd;${env:PATH}"
+  }
+}
