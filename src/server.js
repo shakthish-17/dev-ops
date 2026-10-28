@@ -29,7 +29,9 @@ async function start() {
 
   const app = createApp({ repository, databaseMode });
   const server = app.listen(config.port, '0.0.0.0', () => {
-    console.log(`Student Registry listening on port ${config.port}.`);
+    const applicationUrl = `http://localhost:${config.port}`;
+    console.log(`Student Registry is running: ${applicationUrl}`);
+    console.log('Ctrl+click the link above to open the web application.');
   });
 
   async function shutdown(signal) {
