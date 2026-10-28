@@ -4,7 +4,7 @@
 |---|---|---|
 | Source control | Git repository, `.gitignore`, workflow and PR template | Implemented locally; remote push unverified |
 | Web application | Responsive form, status, records table and success dialog | Implemented |
-| Backend API | Express routes in `src/app.js` | Implemented |
+| Backend API | Express routes in `backend/app.js` | Implemented |
 | Database | Mongoose model and Mongo repository | Implemented; production Atlas connection unverified |
 | Validation | Browser constraints plus Zod server validation | Implemented and tested |
 | Automated testing | Node test runner and Supertest | Passing locally |

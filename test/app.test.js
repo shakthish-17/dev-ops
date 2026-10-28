@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import { beforeEach, describe, test } from 'node:test';
 import request from 'supertest';
-import { createApp } from '../src/app.js';
-import { MemoryStudentRepository } from '../src/repositories/memory-student-repository.js';
+import { createApp } from '../backend/app.js';
+import { MemoryStudentRepository } from '../database/repositories/memory-student-repository.js';
 
 const validStudent = {
   studentId: 'STU-2026-001',

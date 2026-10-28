@@ -8,8 +8,8 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
     "lint": "eslint .",
     "test": "node --test",
     "test:ci": "node --test --test-reporter=junit --test-reporter-destination=reports/junit.xml",

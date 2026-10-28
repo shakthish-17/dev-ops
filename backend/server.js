@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import { createApp } from './app.js';
 import { loadConfig } from './config.js';
-import { MemoryStudentRepository } from './repositories/memory-student-repository.js';
-import { MongoStudentRepository } from './repositories/mongo-student-repository.js';
+import { MemoryStudentRepository } from '../database/repositories/memory-student-repository.js';
+import { MongoStudentRepository } from '../database/repositories/mongo-student-repository.js';
 
 const config = loadConfig();
 

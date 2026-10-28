@@ -66,8 +66,9 @@ For local development only, the application automatically uses an in-memory repo
 ├── .github/workflows/ci.yml       GitHub pull-request validation
 ├── .vscode/                       Recommended extensions, tasks and settings
 ├── docs/                          Architecture, deployment and rubric evidence
-├── public/                        Browser UI
-├── src/                           API, service, model and repositories
+├── frontend/                      Browser UI (HTML, CSS and JavaScript)
+├── backend/                       Express API, configuration and validation
+├── database/                      MongoDB model and repository implementations
 ├── terraform/                     Render infrastructure as code
 ├── test/                          Node API tests
 ├── Dockerfile                     Reproducible production container

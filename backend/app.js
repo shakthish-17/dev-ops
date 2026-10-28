@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import { validateStudent } from './services/student-service.js';
 
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-const publicDirectory = path.resolve(currentDirectory, '../public');
+const frontendDirectory = path.resolve(currentDirectory, '../frontend');
 
 export function createApp({ repository, databaseMode = 'unknown' }) {
   const app = express();
@@ -74,7 +74,7 @@ export function createApp({ repository, databaseMode = 'unknown' }) {
     }
   });
 
-  app.use(express.static(publicDirectory, { extensions: ['html'], maxAge: '1h' }));
+  app.use(express.static(frontendDirectory, { extensions: ['html'], maxAge: '1h' }));
 
   app.use((error, _request, response, _next) => {
     console.error('Unhandled request error:', error);
