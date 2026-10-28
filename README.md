@@ -2,6 +2,14 @@
 
 CampusFlow is a complete DevOps demonstration project. It collects student details in a responsive web form, stores validated records in MongoDB, displays a success popup, and lists recent registrations. The delivery path is GitHub → Jenkins → Terraform/Render → MongoDB Atlas.
 
+## Live deployment
+
+- Application: https://campusflow-student-registry.onrender.com
+- Health check: https://campusflow-student-registry.onrender.com/api/health
+- Source: https://github.com/shakthish-17/dev-ops
+- Hosting: Render free web service managed by the `campusflow` Blueprint
+- Database: MongoDB Atlas free `CampusFlow` cluster
+
 ## What the project demonstrates
 
 - Responsive HTML, CSS and JavaScript frontend with an accessible success dialog
@@ -200,11 +208,11 @@ Jenkins also needs a configured NodeJS tool named `node24` and Terraform availab
 | Docker and Render Blueprint | Implemented |
 | Terraform initialization/validation | Passing locally |
 | Jenkins pipeline | Implemented; requires Jenkins configuration |
-| GitHub webhook and repository push | Requires connected repository credentials |
-| MongoDB Atlas production secret | Requires user-owned Atlas cluster/URI |
-| Public Render deployment | Requires account verification, secret configuration and deployment approval |
+| GitHub repository push | Published to `shakthish-17/dev-ops` |
+| MongoDB Atlas persistence | Live on the free `CampusFlow` cluster |
+| Public Render deployment | Live and health-checked |
 
-The source and pipeline are deployable, but a public URL cannot exist until user-owned GitHub, MongoDB Atlas, Render and Jenkins credentials are configured. Secrets must never be pasted into the repository.
+The application is live on Render and persists records in MongoDB Atlas. Jenkins execution still requires a separately hosted Jenkins controller and the documented credentials. Secrets remain outside the repository.
 
 ## Documentation
 

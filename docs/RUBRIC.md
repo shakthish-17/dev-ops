@@ -10,16 +10,16 @@
 | Automated testing | Node test runner and Supertest | Passing locally |
 | Code quality | ESLint flat configuration | Passing locally |
 | Dependency security | Production npm audit | Passing locally at last verification |
-| Containerization | Unprivileged runtime and health check in `Dockerfile` | Implemented; remote build unverified |
+| Containerization | Unprivileged runtime and health check in `Dockerfile` | Built successfully on Render |
 | CI | GitHub Actions and Jenkins quality stages | Implemented; hosted execution unverified |
-| CD | Jenkins deploy hook and live health verification | Implemented; hosted execution unverified |
+| CD | Render Blueprint deployment plus Jenkins deploy hook | Render live; Jenkins hosted execution unverified |
 | Infrastructure as code | Official Render provider, pinned version, variables and outputs | Initialized and validated locally |
 | State management | Remote backend example and Jenkins secret file | Implemented; backend workspace unverified |
 | Secret management | Jenkins/Render secret references | Implemented; user credentials required |
 | Deployment safety | Manual Terraform apply approval | Implemented |
-| Observability | Health endpoint, logs and Jenkins polling | Implemented; hosted checks unverified |
+| Observability | Health endpoint, Render logs and Jenkins polling | Live health check verified |
 | Documentation | README, architecture, deployment, Jenkins, Terraform and tests | Implemented |
-| Cloud go-live | Render Blueprint/Terraform configuration | Ready; public deployment pending account/secrets |
+| Cloud go-live | Render Blueprint and MongoDB Atlas | Live and verified |
 
 ## Priority completion checklist
 

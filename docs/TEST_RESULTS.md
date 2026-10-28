@@ -13,4 +13,15 @@ Validation performed on 2026-10-29:
 
 Automated coverage includes static frontend delivery, health response, invalid payload rejection, the Year 1–4 constraint, student creation/listing and duplicate ID rejection.
 
-Still requiring user-owned external systems: GitHub push/webhook, Jenkins credentials, MongoDB Atlas persistence, and Render public deployment. Update this file with the Jenkins build and Render service links after go-live.
+Live verification performed on 2026-10-29:
+
+- Render deployment status: Live
+- Health endpoint: HTTP 200 with database mode `mongodb`
+- End-to-end student submission: Passed
+- Success dialog: Displayed
+- MongoDB-backed recent-record count: 1
+- Browser warnings/errors: None
+
+Public application: https://campusflow-student-registry.onrender.com
+
+Still requiring an external system: hosted Jenkins controller/agent execution and credential configuration.
