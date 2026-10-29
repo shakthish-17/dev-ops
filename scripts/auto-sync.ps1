@@ -16,6 +16,12 @@ $AllowedFiles = @('package.json', 'package-lock.json', 'Dockerfile', 'eslint.con
 $AllowedRoots = @('frontend/', 'backend/', 'database/', 'test/')
 $script:IgnoredBaseline = @{}
 
+# Keep the repository trust exception scoped to this watcher process. This is
+# needed when VS Code and the sandbox use different Windows identities.
+$env:GIT_CONFIG_COUNT = '1'
+$env:GIT_CONFIG_KEY_0 = 'safe.directory'
+$env:GIT_CONFIG_VALUE_0 = $Workspace
+
 function Write-Status([string]$Message) {
     Write-Host "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Message"
 }
