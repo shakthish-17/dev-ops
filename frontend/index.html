@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +8,13 @@
   <title>CampusFlow Student Registry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/app.js" defer></script>
 </head>
+
 <body>
   <div class="page-shell">
     <header class="topbar">
@@ -28,8 +32,9 @@
       <section class="hero" aria-labelledby="page-title">
         <div>
           <p class="eyebrow">Student information system</p>
-          <h1 id="page-title">Enroll students.<br><span>Keep records clear.</span></h1>
-          <p class="hero-copy">A secure student registration portal backed by MongoDB, designed to keep records clear and organized.</p>
+          <h1 id="page-title">Student.<br><span>Keep records clear.</span></h1>
+          <p class="hero-copy">A secure student registration portal backed by MongoDB, designed to keep records clear
+            and organized.</p>
         </div>
       </section>
 
@@ -47,19 +52,22 @@
             <div class="form-grid">
               <label>
                 <span>Student ID *</span>
-                <input name="studentId" autocomplete="off" placeholder="STU-2026-001" minlength="3" maxlength="30" required>
+                <input name="studentId" autocomplete="off" placeholder="STU-2026-001" minlength="3" maxlength="30"
+                  required>
                 <small data-error-for="studentId"></small>
               </label>
 
               <label>
                 <span>Full name *</span>
-                <input name="fullName" autocomplete="name" placeholder="Aarav Sharma" minlength="2" maxlength="120" required>
+                <input name="fullName" autocomplete="name" placeholder="Aarav Sharma" minlength="2" maxlength="120"
+                  required>
                 <small data-error-for="fullName"></small>
               </label>
 
               <label>
                 <span>Email address *</span>
-                <input name="email" type="email" autocomplete="email" placeholder="student@college.edu" maxlength="254" required>
+                <input name="email" type="email" autocomplete="email" placeholder="student@college.edu" maxlength="254"
+                  required>
                 <small data-error-for="email"></small>
               </label>
 
@@ -138,7 +146,9 @@
                 </tr>
               </thead>
               <tbody id="student-table-body">
-                <tr class="empty-row"><td colspan="4">Loading student records…</td></tr>
+                <tr class="empty-row">
+                  <td colspan="4">Loading student records…</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -161,4 +171,5 @@
     <button class="primary-button" id="dialog-close" type="button">Continue</button>
   </dialog>
 </body>
+
 </html>
