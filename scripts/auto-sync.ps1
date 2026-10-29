@@ -174,18 +174,18 @@ $signalAction = {
     }
 }
 $messageData = @{ Workspace = $Workspace; AllowedFiles = $AllowedFiles; AllowedRoots = $AllowedRoots; SignalFile = $SignalFile }
-$subscriptions = @(
-    Register-ObjectEvent -InputObject $watcher -EventName Changed -Action $signalAction -MessageData $messageData,
-    Register-ObjectEvent -InputObject $watcher -EventName Created -Action $signalAction -MessageData $messageData,
-    Register-ObjectEvent -InputObject $watcher -EventName Renamed -Action $signalAction -MessageData $messageData
-)
+$subscriptions = @()
+$subscriptions += Register-ObjectEvent -InputObject $watcher -EventName Changed -Action $signalAction -MessageData $messageData
+$subscriptions += Register-ObjectEvent -InputObject $watcher -EventName Created -Action $signalAction -MessageData $messageData
+$subscriptions += Register-ObjectEvent -InputObject $watcher -EventName Renamed -Action $signalAction -MessageData $messageData
 $watcher.EnableRaisingEvents = $true
 Write-Status "Watching source files with a $DebounceSeconds-second debounce. Publishing: $Publish."
 
 try {
     while ($true) {
         Start-Sleep -Seconds 1
-        $value = (Get-Content $SignalFile -Raw -ErrorAction SilentlyContinue).Trim()
+        $value = Get-Content $SignalFile -Raw -ErrorAction SilentlyContinue
+        if ($null -eq $value) { $value = '' } else { $value = $value.Trim() }
         if (-not $value) { continue }
         $changedAt = [DateTime]::Parse($value, [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::RoundtripKind)
         if (([DateTime]::UtcNow - $changedAt).TotalSeconds -lt $DebounceSeconds) { continue }
