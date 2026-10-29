@@ -12,7 +12,8 @@
 | Memory repository | Enables deterministic local development and automated tests |
 | MongoDB Atlas | Production database with TLS connectivity and credentials |
 | GitHub | Source control, pull requests and webhook source |
-| Jenkins | Main CI/CD orchestrator and deployment gatekeeper |
+| GitHub Actions | Required quality checks for the production branch |
+| Jenkins | Optional additional CI and fallback deployment controller |
 | Terraform | Declarative Render service configuration |
 | Render | Builds, runs, exposes and health-checks the web service |
 
@@ -53,5 +54,6 @@ sequenceDiagram
 - Duplicate student IDs return `409` without overwriting a record.
 - MongoDB connection failure prevents a production server from becoming ready.
 - Any CI quality failure stops later deployment stages.
+- Render deploys `main` only after the linked GitHub checks pass.
 - Terraform apply is opt-in and manually approved.
-- Live health failure marks the Jenkins build failed.
+- Live health failure marks an explicitly enabled Jenkins fallback deployment failed.

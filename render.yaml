@@ -4,10 +4,12 @@ services:
     runtime: docker
     plan: free
     region: singapore
+    branch: main
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health
-    autoDeploy: false
+    # Deploy this existing service only after GitHub CI checks for main succeed.
+    autoDeployTrigger: checksPass
     envVars:
       - key: NODE_ENV
         value: production

@@ -12,7 +12,9 @@ The target database defaults to `student_registry`, and Mongoose creates the `st
 
 ## 2. Publish source to GitHub
 
-Use `main` as the production branch. Protect it by requiring the GitHub `quality` check and Jenkins status before merge. Configure a GitHub webhook to Jenkins at:
+Use `main` as the production branch. Protect it by requiring the GitHub `quality` check before merge. Jenkins can remain an additional optional check; it is not required for the default Render deployment path.
+
+If Jenkins is used, configure a GitHub webhook at:
 
 ```text
 https://YOUR_JENKINS_HOST/github-webhook/
@@ -28,21 +30,23 @@ Select JSON content type and the push event. The Jenkins job should be a Pipelin
 2. Connect the GitHub repository and select `main`.
 3. Confirm the service described by `render.yaml`.
 4. Enter the `MONGODB_URI` secret when prompted.
-5. Deploy and wait for `/api/health` to report `UP` with database mode `mongodb`.
+5. Verify Auto-Deploy is **After CI Checks Pass**, matching `autoDeployTrigger: checksPass`.
+6. Deploy and wait for `/api/health` to report `UP` with database mode `mongodb`.
 
 ### Terraform path
 
 The Terraform provider path defaults to Render's paid `starter` plan. Configure credentials, initialize remote state, review the plan and approve the Jenkins input before apply. Do not run an unreviewed apply.
 
-## 4. Connect Jenkins deployment
+## 4. Optional Jenkins fallback deployment
 
-After Render creates the service:
+The default path is GitHub Actions followed by Render's **After CI Checks Pass** trigger. This requires no deploy-hook secret. If an organization deliberately uses Jenkins as the deployment controller instead:
 
-1. Create a Render deploy hook for the service.
-2. Store the full hook as Jenkins secret text `render-deploy-hook-url`.
-3. Store the public origin as `render-app-url`.
-4. Run the `main` branch pipeline with `DEPLOY_TO_RENDER=true`.
-5. Verify Jenkins triggers the exact `GIT_COMMIT` and the health stage succeeds.
+1. Set the Render service Auto-Deploy setting to **Off** to prevent duplicates.
+2. Create a Render deploy hook for the existing service.
+3. Store the full hook as Jenkins secret text `render-deploy-hook-url`.
+4. Store the public origin as `render-app-url`.
+5. Run the `main` branch pipeline with `DEPLOY_TO_RENDER=true`.
+6. Verify Jenkins triggers the exact `GIT_COMMIT` and the health stage succeeds.
 
 ## 5. Acceptance checks
 

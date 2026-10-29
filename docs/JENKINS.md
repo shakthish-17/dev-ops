@@ -22,10 +22,10 @@
 
 - `TERRAFORM_PLAN`: plans infrastructure without applying it.
 - `TERRAFORM_APPLY`: creates a plan, pauses for human approval and applies it.
-- `DEPLOY_TO_RENDER`: triggers application deployment after all gates pass on `main`.
+- `DEPLOY_TO_RENDER`: optional fallback deployment after all gates pass on `main`; defaults to false.
 - `REPOSITORY_URL`: repository Terraform configures Render to build.
 
-Normal releases should leave Terraform parameters false and deploy through the Render hook. Enable Terraform only for infrastructure changes.
+Normal releases leave Terraform parameters and `DEPLOY_TO_RENDER` false. Render deploys after the linked GitHub checks pass. Enable the Jenkins deploy hook only after setting Render Auto-Deploy to Off; enable Terraform only for reviewed infrastructure changes.
 
 ## Pipeline gates
 

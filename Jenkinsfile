@@ -23,8 +23,8 @@ pipeline {
             description: 'Create a real Render infrastructure plan.')
         booleanParam(name: 'TERRAFORM_APPLY', defaultValue: false,
             description: 'Apply the reviewed Render plan after manual approval. May create billable resources.')
-        booleanParam(name: 'DEPLOY_TO_RENDER', defaultValue: true,
-            description: 'Trigger Render deployment after every successful main-branch build.')
+        booleanParam(name: 'DEPLOY_TO_RENDER', defaultValue: false,
+            description: 'Optional fallback deploy hook. Keep false when Render autoDeployTrigger is checksPass to avoid duplicate deployments.')
         string(name: 'REPOSITORY_URL', defaultValue: 'https://github.com/shakthish-17/dev-ops',
             description: 'GitHub repository Render should build.')
     }

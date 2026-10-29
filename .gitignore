@@ -29,6 +29,9 @@ crash.log
 .tools/
 .m2/
 
+# Local auto-sync watcher state (never publish this machine-specific state)
+.auto-sync/
+
 # IDE and operating system files
 .idea/
 *.iml
