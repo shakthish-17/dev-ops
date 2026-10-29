@@ -27,7 +27,7 @@ async function start() {
     console.log('Connected to MongoDB.');
   }
 
-  const app = createApp({ repository, databaseMode });
+  const app = createApp({ repository, databaseMode, nodeEnv: config.nodeEnv });
   const server = app.listen(config.port, '0.0.0.0', () => {
     const applicationUrl = `http://localhost:${config.port}`;
     console.log(`Student Registry is running: ${applicationUrl}`);

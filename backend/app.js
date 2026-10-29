@@ -8,7 +8,7 @@ import { validateStudent } from './services/student-service.js';
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const frontendDirectory = path.resolve(currentDirectory, '../frontend');
 
-export function createApp({ repository, databaseMode = 'unknown' }) {
+export function createApp({ repository, databaseMode = 'unknown', nodeEnv = 'development' }) {
   const app = express();
 
   app.disable('x-powered-by');
@@ -74,7 +74,14 @@ export function createApp({ repository, databaseMode = 'unknown' }) {
     }
   });
 
-  app.use(express.static(frontendDirectory, { extensions: ['html'], maxAge: '1h' }));
+  // Development should always serve the most recently saved frontend file. Production
+  // retains caching because each Render deployment has a new application version.
+  app.use(
+    express.static(frontendDirectory, {
+      extensions: ['html'],
+      maxAge: nodeEnv === 'production' ? '1h' : 0
+    })
+  );
 
   app.use((error, _request, response, _next) => {
     console.error('Unhandled request error:', error);

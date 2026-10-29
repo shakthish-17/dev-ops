@@ -27,6 +27,7 @@ describe('Student Registry API', () => {
     const response = await request(app).get('/');
     assert.equal(response.status, 200);
     assert.match(response.text, /Student Registry/);
+    assert.match(response.headers['cache-control'], /max-age=0/);
   });
 
   test('reports application and database health', async () => {
